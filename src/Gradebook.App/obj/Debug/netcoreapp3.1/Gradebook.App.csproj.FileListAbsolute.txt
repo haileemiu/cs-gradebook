@@ -1,0 +1,13 @@
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\bin\Debug\netcoreapp3.1\Gradebook.App.exe
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\bin\Debug\netcoreapp3.1\Gradebook.App.deps.json
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\bin\Debug\netcoreapp3.1\Gradebook.App.runtimeconfig.json
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\bin\Debug\netcoreapp3.1\Gradebook.App.runtimeconfig.dev.json
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\bin\Debug\netcoreapp3.1\Gradebook.App.dll
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\bin\Debug\netcoreapp3.1\Gradebook.App.pdb
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\obj\Debug\netcoreapp3.1\Gradebook.App.csprojAssemblyReference.cache
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\obj\Debug\netcoreapp3.1\Gradebook.App.AssemblyInfoInputs.cache
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\obj\Debug\netcoreapp3.1\Gradebook.App.AssemblyInfo.cs
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\obj\Debug\netcoreapp3.1\Gradebook.App.csproj.CoreCompileInputs.cache
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\obj\Debug\netcoreapp3.1\Gradebook.App.dll
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\obj\Debug\netcoreapp3.1\Gradebook.App.pdb
+C:\Users\hailee.miu\Developer\CSharp\Gradebook\src\Gradebook.App\obj\Debug\netcoreapp3.1\Gradebook.App.genruntimeconfig.cache

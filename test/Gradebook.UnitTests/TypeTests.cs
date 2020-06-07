@@ -6,6 +6,23 @@ namespace Gradebook.UnitTests
 {
     public class TypeTests
     {
+        [Fact]
+        public void ValueTypesAlsoPassByValue()
+        {
+            var x = GetInt();
+            SetInt(ref x);
+            Assert.Equal(42, x);
+        }
+
+        private void SetInt(ref int x)
+        {
+            x = 42;
+        }
+
+        private int GetInt()
+        {
+            return 3;
+        }
 
         [Fact]
         public void CSharpCanPassByRef()
@@ -33,6 +50,19 @@ namespace Gradebook.UnitTests
         void GetBookSetName(Book book, string name)
         {
             book = new Book(name);
+        }
+
+        [Fact]
+        public void StringsBehaveLikeValueTypes()
+        {
+            string name = "hailee"; // this is a pointer to a string that is allocated in memory
+            var upper = MakeUppercase(name);
+            Assert.Equal("HAILEE", upper);
+        }
+
+        private string MakeUppercase(string parameter)
+        {
+            return parameter.ToUpper(); // returns a copy
         }
 
         [Fact]

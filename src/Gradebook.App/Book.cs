@@ -13,10 +13,40 @@ namespace Gradebook.App
             Name = name;
         }
 
+        public void AddLetterGrade(char letter)
+        {
+            switch(letter)
+            {
+                case 'A':
+                    AddGrade(90);
+                    break;
+                case 'B':
+                    AddGrade(80);
+                    break;
+                case 'C':
+                    AddGrade(70);
+                    break;
+                case 'D':
+                    AddGrade(60);
+                    break;
+                case 'E':
+                    AddGrade(50);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public void AddGrade(double grade)
         {
-            this.grades.Add(grade);
-            grades.Add(grade);
+            if (grade <= 100 && grade >= 0)
+            {
+                grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("invalid value");
+            }
         }
 
         public Statistics GetStatistics()
@@ -27,7 +57,12 @@ namespace Gradebook.App
             result.Low = double.MaxValue;
 
             foreach (var grade in grades)
-            {                
+            {
+                if (grade < 40)
+                {
+                    Console.WriteLine(grade);
+                    continue;
+                }
                 result.High = Math.Max(grade, result.High);
                 result.Low = Math.Min(grade, result.Low);
                 result.Average += grade;
@@ -35,11 +70,29 @@ namespace Gradebook.App
 
             result.Average /= grades.Count;
 
+            switch(result.Average)
+            {
+                case var d when d >= 90.0:
+                    result.Letter = 'A';
+                    break;
+                case var d when d >= 80.0:
+                    result.Letter = 'B';
+                    break;
+                case var d when d >= 70.0:
+                    result.Letter = 'C';
+                    break;
+                case var d when d >= 60.0:
+                    result.Letter = 'D';
+                    break;
+                default: 
+                    break;
+            }
+
             return result;
         }
 
         // Fields
-        private List<double> grades;
+        public List<double> grades;
         public string Name;
 
     }

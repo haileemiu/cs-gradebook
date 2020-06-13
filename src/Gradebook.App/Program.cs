@@ -16,6 +16,7 @@ namespace Gradebook.App
             Console.WriteLine($"the low grade: {stats.Low}");
             Console.WriteLine($"the high grade: {stats.High}");
             Console.WriteLine($"the average grade: {stats.Average}");
+            Console.WriteLine($"the letter grade: {stats.Letter}");
 
         }
     }

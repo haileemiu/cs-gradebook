@@ -22,6 +22,16 @@ namespace Gradebook.UnitTests
             Assert.Equal(54.7, result.Low);
             Assert.Equal(95.7, result.High);
             Assert.Equal(73.5, result.Average, 1);
+            Assert.Equal('C', result.Letter);
+        }
+
+        [Fact]
+        public void Over100Grade()
+        {
+            var book = new Book("Too High");
+
+            book.AddGrade(105);
+            Assert.Empty(book.grades);
         }
     }
 }

@@ -7,5 +7,6 @@
         public double Low;
         public double High;
         public double Average;
+        public char Letter;
     }
 }

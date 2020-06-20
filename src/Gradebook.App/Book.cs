@@ -13,7 +13,7 @@ namespace Gradebook.App
             Name = name;
         }
 
-        public void AddLetterGrade(char letter)
+        public void AddGrade(char letter)
         {
             switch(letter)
             {
@@ -45,7 +45,7 @@ namespace Gradebook.App
             }
             else
             {
-                Console.WriteLine("invalid value");
+                throw new ArgumentException($"Invalid {nameof(grade)}");
             }
         }
 
@@ -93,7 +93,24 @@ namespace Gradebook.App
 
         // Fields
         public List<double> grades;
-        public string Name;
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if (!String.IsNullOrEmpty(value))
+                {
+                    // value is an implicit variable available in a setter
+                    name = value;
+                }
+            }
+        }
+
+        private string name;
 
     }
 }

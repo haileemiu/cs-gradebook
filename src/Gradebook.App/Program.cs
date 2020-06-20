@@ -6,13 +6,40 @@ namespace Gradebook.App
     {
         static void Main(string[] args)
         {
-            Book miuBook = new Book("Miu's Gradebook");
+            Book book = new Book("Miu's Gradebook");
 
-            miuBook.AddGrade(98.5);
-            miuBook.AddGrade(55.8);
+            while (true)
+            {
+                Console.WriteLine("Add a grade:");
+                var input = Console.ReadLine();
 
-            var stats = miuBook.GetStatistics();
+                if (input == "q")
+                {
+                    break;
+                }
+                try
+                {
+                    var grade = double.Parse(input);
+                    book.AddGrade(grade);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Console.WriteLine("**");
+                }
+            }
 
+
+            var stats = book.GetStatistics();
+
+            Console.WriteLine($"For the book named:{book.Name}");
             Console.WriteLine($"the low grade: {stats.Low}");
             Console.WriteLine($"the high grade: {stats.High}");
             Console.WriteLine($"the average grade: {stats.Average}");

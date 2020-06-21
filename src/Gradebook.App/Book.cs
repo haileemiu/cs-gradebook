@@ -4,6 +4,9 @@ using System.Net.NetworkInformation;
 
 namespace Gradebook.App
 {
+
+    public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
     // public access so that it can be used in the tests project
     public class Book
     {
@@ -42,12 +45,19 @@ namespace Gradebook.App
             if (grade <= 100 && grade >= 0)
             {
                 grades.Add(grade);
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
                 throw new ArgumentException($"Invalid {nameof(grade)}");
             }
         }
+
+        // Field
+        public event GradeAddedDelegate GradeAdded;
 
         public Statistics GetStatistics()
         {
@@ -96,21 +106,12 @@ namespace Gradebook.App
 
         public string Name
         {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if (!String.IsNullOrEmpty(value))
-                {
-                    // value is an implicit variable available in a setter
-                    name = value;
-                }
-            }
+            get; set;
+
         }
 
-        private string name;
+        public const string CATEGORY = "Science";
+
 
     }
 }

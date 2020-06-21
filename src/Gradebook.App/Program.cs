@@ -4,9 +4,11 @@ namespace Gradebook.App
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             Book book = new Book("Miu's Gradebook");
+            book.GradeAdded += OnGradeAdded;
 
             while (true)
             {
@@ -39,12 +41,16 @@ namespace Gradebook.App
 
             var stats = book.GetStatistics();
 
-            Console.WriteLine($"For the book named:{book.Name}");
+            Console.WriteLine(Book.CATEGORY);
             Console.WriteLine($"the low grade: {stats.Low}");
             Console.WriteLine($"the high grade: {stats.High}");
             Console.WriteLine($"the average grade: {stats.Average}");
             Console.WriteLine($"the letter grade: {stats.Letter}");
 
+        }
+        static void OnGradeAdded(object sender, EventArgs e)
+        {
+            Console.WriteLine("a grade was added");
         }
     }
 }

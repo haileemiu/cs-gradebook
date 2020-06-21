@@ -25,13 +25,13 @@ namespace Gradebook.UnitTests
             Assert.Equal('C', result.Letter);
         }
 
-        [Fact]
-        public void Over100Grade()
-        {
-            var book = new Book("Too High");
+        //[Fact]
+        //public void Over100Grade()
+        //{
+        //    var book = new Book("Too High");
 
-            book.AddGrade(105);
-            Assert.Empty(book.grades);
-        }
+        //    book.AddGrade(105);
+        //    Assert.Empty(book.grades);
+        //}
     }
 }

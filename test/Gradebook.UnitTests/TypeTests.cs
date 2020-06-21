@@ -4,8 +4,45 @@ using Xunit;
 
 namespace Gradebook.UnitTests
 {
+    public delegate string WriteLogDelegate(string logMessage);
+
     public class TypeTests
     {
+        int count = 0;
+
+        [Fact]
+        public void WriteLogDelegateCanPointToMethod()
+        {
+
+            // when have a variable or a field that is a delegate type
+            // you are refering to a method, which can be invoked
+
+            WriteLogDelegate log = ReturnMessage;
+            log += ReturnMessage;
+            log += IncrementCount;
+
+            // long hand
+            //log = new WriteLogDelegate(ReturnMessage());
+
+            var result = log("Hello");
+
+            Assert.Equal(3, count);
+        }
+
+        // So the return type and parameter type & number just need to match
+        string ReturnMessage(string message)
+        {
+            count++;
+            return message.ToLower();
+        }
+
+        // both of these have the same delegate type
+        string IncrementCount(string message)
+        {
+            count++;
+            return message;
+        }
+
         [Fact]
         public void ValueTypesAlsoPassByValue()
         {
@@ -76,7 +113,7 @@ namespace Gradebook.UnitTests
 
         void SetName(Book book, string name)
         {
-            book.Name = name;
+           book.Name = name;
         }
 
 

@@ -7,10 +7,48 @@ namespace Gradebook.App
 
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-    // public access so that it can be used in the tests project
-    public class Book
+    // usually would put in a different file, but just keep here for ease of learning
+    public class NamedObject
     {
-        public Book(string name)
+        public NamedObject(string name)
+        {
+            Name = name;
+        }
+
+        public string Name
+        {
+            get;
+            set;
+        }
+    }
+    public interface IBook
+    {
+        void AddGrade(double grade);
+        Statistics GetStatistics();
+        string Name { get; }
+        event GradeAddedDelegate GradeAdded;
+    }
+
+    public abstract class Book : NamedObject, IBook
+    {
+        public Book(string name) : base(name)
+        {
+        }
+
+        public virtual event GradeAddedDelegate GradeAdded;
+
+        public abstract void AddGrade(double grade);
+
+        public virtual Statistics GetStatistics()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    // public access so that it can be used in the tests project
+    public class InMemoryBook : Book
+    {
+        public InMemoryBook(string name) : base(name)
         {
             grades = new List<double>();
             Name = name;
@@ -40,7 +78,7 @@ namespace Gradebook.App
             }
         }
 
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade)
         {
             if (grade <= 100 && grade >= 0)
             {
@@ -57,9 +95,9 @@ namespace Gradebook.App
         }
 
         // Field
-        public event GradeAddedDelegate GradeAdded;
+        public override event GradeAddedDelegate GradeAdded;
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var result = new Statistics();
             result.Average = 0.0;
@@ -104,11 +142,6 @@ namespace Gradebook.App
         // Fields
         public List<double> grades;
 
-        public string Name
-        {
-            get; set;
-
-        }
 
         public const string CATEGORY = "Science";
 

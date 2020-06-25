@@ -26,7 +26,7 @@ namespace Gradebook.App
         void AddGrade(double grade);
         Statistics GetStatistics();
         string Name { get; }
-        event GradeAddedDelegate GradeAdded;
+        event  GradeAddedDelegate GradeAdded;
     }
 
     public abstract class Book : NamedObject, IBook
